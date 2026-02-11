@@ -1,0 +1,53 @@
+{
+    "manifest_version": 3,
+    "name": "Popup!",
+    "version": "1.0",
+    "description": "Popup! by cvxzsrey for итд.com",
+    "icons": {
+	"16": "icons/icon16.png",
+	"32": "icons/icon32.png",
+	"48": "icons/icon48.png",
+	"128": "icons/icon128.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "webNavigation"
+    ],
+    "host_permissions": [
+        "*://xn--d1ah4a.com/*",
+        "*://*.xn--d1ah4a.com/*",
+        "*://итд.com/*",
+        "*://*.итд.com/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Popup!",
+	"default_icon": {
+	  "16": "icons/icon16.png",
+	  "32": "icons/icon32.png",
+	  "48": "icons/icon48.png",
+	  "128": "icons/icon128.png"
+	}
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://xn--d1ah4a.com/*",
+                "*://*.xn--d1ah4a.com/*",
+                "*://итд.com/*",
+                "*://*.итд.com/*"
+            ],
+            "js": ["content.js"],
+            "run_at": "document_start",
+            "all_frames": true
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["content.js"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}
